@@ -14,8 +14,8 @@ class EnrollmentResponse(EnrollmentBase):
     id: int
 
     class Config:
-        from_attributes = True
-
+        orm_mode = True
+        
 class EnrollmentUpdate(BaseModel):
     student_id: int | None
     course_id: int | None

@@ -13,7 +13,7 @@ router = APIRouter(
     tags=["Exercises"]
 )
 
-# 🔹 GET ALL (solo admin)
+# GET ALL (solo admin)
 @router.get("/", response_model=list[ExerciseResponse])
 def get_all(
     db: Session = Depends(get_db),
@@ -22,7 +22,7 @@ def get_all(
     return db.query(Exercise).all()
 
 
-# 🔹 GET BY ID (todos)
+# GET BY ID (todos)
 @router.get("/{exercise_id}", response_model=ExerciseResponse)
 def get_one(
     exercise_id: int,
@@ -37,7 +37,7 @@ def get_one(
     return exercise
 
 
-# 🔹 GET exercises by course
+# GET exercises by course
 @router.get("/course/{course_id}", response_model=list[ExerciseResponse])
 def get_by_course(
     course_id: int,
@@ -48,7 +48,7 @@ def get_by_course(
     return exercises
 
 
-# 🔹 CREATE
+# CREATE
 @router.post("/", response_model=ExerciseResponse)
 def create(
     data: ExerciseCreate,
@@ -60,11 +60,11 @@ def create(
     if not course:
         raise HTTPException(404, "Course not found")
 
-    # 🔐 ADMIN puede todo
+    # ADMIN puede todo
     if current_user.role == "admin":
         pass
 
-    # 🔐 TEACHER solo su curso
+    # TEACHER solo su curso
     elif current_user.role == "teacher":
         if course.professor_id != current_user.id:
             raise HTTPException(403, "Not your course")
@@ -81,7 +81,7 @@ def create(
     return new_exercise
 
 
-# 🔹 UPDATE
+#  UPDATE
 @router.put("/{exercise_id}", response_model=ExerciseResponse)
 def update(
     exercise_id: int,
@@ -96,11 +96,11 @@ def update(
 
     course = db.query(Course).filter(Course.id == exercise.course_id).first()
 
-    # 🔐 ADMIN
+    #  ADMIN
     if current_user.role == "admin":
         pass
 
-    # 🔐 TEACHER
+    # TEACHER
     elif current_user.role == "teacher":
         if course.professor_id != current_user.id:
             raise HTTPException(403, "Not your course")
@@ -117,7 +117,7 @@ def update(
     return exercise
 
 
-# 🔹 DELETE
+#  DELETE
 @router.delete("/{exercise_id}")
 def delete(
     exercise_id: int,
@@ -131,11 +131,11 @@ def delete(
 
     course = db.query(Course).filter(Course.id == exercise.course_id).first()
 
-    # 🔐 ADMIN
+    # ADMIN
     if current_user.role == "admin":
         pass
 
-    # 🔐 TEACHER
+    # TEACHER
     elif current_user.role == "teacher":
         if course.professor_id != current_user.id:
             raise HTTPException(403, "Not your course")
@@ -162,7 +162,7 @@ def patch_exercise(
 
     course = db.query(Course).filter(Course.id == exercise.course_id).first()
 
-    # 🔐 permisos
+    #  permisos
     if current_user.role == "admin":
         pass
     elif current_user.role == "teacher":

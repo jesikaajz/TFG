@@ -1,9 +1,17 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
+from dotenv import load_dotenv
+import os
 
-DATABASE_URL = "postgresql://postgres:drpnll00@localhost:5432/Database_TFG"
+load_dotenv()  # carga variables del .env
 
-engine = create_engine(DATABASE_URL)
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+engine = create_engine(
+    DATABASE_URL,
+    pool_pre_ping=True,   # Evita errores de conexión
+    #connect_args={"sslmode": "require"}  # Solo si la DB es remota
+)
 
 SessionLocal = sessionmaker(
     autocommit=False,

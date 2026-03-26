@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from ..schemas.user_schema import UserCreate, UserResponse
 from ..bd.connection import get_db
 from ..models.user_model import User
-from ..security.jwt_handler import hash_password, verify_password, create_access_token, decode_access_token
+from ..security.jwt_handler import create_refresh_token, decode_token, hash_password, verify_password, create_access_token
 from fastapi.security import OAuth2PasswordBearer
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi import Depends
@@ -38,26 +38,36 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
 @router.post("/login")
 def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
 
-    email = form_data.username
-    password = form_data.password
+    user = db.query(User).filter(User.email == form_data.username).first()
+    if not user or not verify_password(form_data.password, user.password):
+        raise HTTPException(status_code=401, detail="Invalid credentials")
 
-    user = db.query(User).filter(User.email == email).first()
+    access_token = create_access_token({"user_id": user.id, "role": user.role})
+    refresh_token = create_refresh_token({"user_id": user.id, "role": user.role})
 
+    return {
+        "access_token": access_token,
+        "refresh_token": refresh_token,
+        "token_type": "bearer"
+    }
+
+
+@router.post("/refresh")
+def refresh_token(refresh_token: str, db: Session = Depends(get_db)):
+    payload = decode_token(refresh_token)
+    if not payload:
+        raise HTTPException(status_code=401, detail="Invalid refresh token")
+
+    user = db.query(User).filter(User.id == payload["user_id"]).first()
     if not user:
         raise HTTPException(status_code=401, detail="User not found")
 
-    if not verify_password(password, user.password):
-        raise HTTPException(status_code=401, detail="Incorrect password")
-
-    token = create_access_token(
-        data={"user_id": user.id, "role": user.role}
-    )
-
-    return {"access_token": token, "token_type": "bearer"}
+    new_access_token = create_access_token({"user_id": user.id, "role": user.role})
+    return {"access_token": new_access_token, "token_type": "bearer"}
 
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    payload = decode_access_token(token)
+    payload = decode_token(token)
 
     if not payload:
         raise HTTPException(status_code=401, detail="Invalid token")

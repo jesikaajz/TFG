@@ -12,7 +12,7 @@ from ..models.user_model import User
 router = APIRouter(prefix="/test-results", tags=["Test Results"])
 
 
-# 🔹 GET resultados de una evaluation
+# GET resultados de una evaluation
 @router.get("/evaluation/{evaluation_id}", response_model=list[TestResultResponse])
 def get_test_results(evaluation_id: int, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
 

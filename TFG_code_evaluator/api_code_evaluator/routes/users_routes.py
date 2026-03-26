@@ -194,13 +194,13 @@ def patch_user(
     if not user:
         raise HTTPException(404, "User not found")
 
-    # 🔐 Solo admin o el propio usuario
+    #  Solo admin o el propio usuario
     if current_user.role != "admin" and current_user.id != user_id:
         raise HTTPException(403, "Not authorized")
 
     update_data = data.dict(exclude_unset=True)
 
-    # 🔒 hash password si viene
+    #  hash password si viene
     if "password" in update_data:
         update_data["password"] = hash_password(update_data["password"])
 
