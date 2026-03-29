@@ -190,7 +190,9 @@ body.app {
     justify-content: center;
     align-items: center;
 }
-
+/*.header-left img {
+    width: 110px;
+}*/
 .header-center {
     flex: 1;
     padding-left: 20px;
