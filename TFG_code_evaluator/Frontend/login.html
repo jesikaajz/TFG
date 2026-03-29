@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Iniciar Sessión</title>
+</head>
+<body class="login-page">
+
+    <div class="Sign_in">
+        <h1>Iniciar Sesión</h1>
+        <p class="subtitle">Bienvenido, introduce tus datos</p>
+
+        <div class="button">
+            <button type="button" id="btn-students">Alumno
+                <img src="alumno.png" width="45">
+            </button>
+            <button type="button" id="btn-teachers">Profesor
+                <img src="profesor.png" width="45">
+            </button>
+            <button type="button" id="btn-admin">Administrador   
+                <img src="admin.png" width="45">
+            </button>
+        </div>
+
+        <form id="loginForm" method="POST">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" name="email" required>
+
+            <label>Contraseña</label>
+            <input type="password" placeholder="••••••••" name="password" required>
+
+            <button type="submit" class="login-btn">Iniciar Sesión</button>
+
+            <div class="registrar">
+                <span>No tienes cuenta?</span>
+                <a href="#">Regístrate</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

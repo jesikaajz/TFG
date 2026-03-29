@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+/* LOGIN */
+body.login-page {
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #c1d4e7, #ffffff);
+}
+h1 {
+    font-size: 30px;
+    color: #222;
+}
+.Sign_in{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    max-width: 550px;
+    width: 100%; 
+    padding: 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.button {
+    display: flex;
+    gap: 20px;
+}
+
+.button button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 130px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #f9f9fb;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.button img {
+    width: 40px;
+}
+.button button:hover {
+    border-color: #6c63ff;
+    background: #f1f0ff;
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    width: 100%;
+}
+input {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    font-size: 14px;
+    background: #f9f9fb;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input::placeholder {
+    color: #aaa;
+}   
+input:focus {
+    border-color: #6c63ff;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 10px;
+}
+
+.login-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6c63ff, #5a54e6);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-btn:hover {
+    opacity:0.9;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #666;
+}
+
+.registrar {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.registrar a {
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.registrar a:hover {
+    text-decoration: underline;
+}
+
+
+/* REGISTER */
+body.register-page {
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #c1d4e7, #ffffff);
+}
+.Reg_in {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    max-width: 550px;
+    width: 100%; 
+    padding: 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.registrar-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6c63ff, #5a54e6);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.registrar-btn:hover {
+    opacity:0.9;
+}
+
+/* COURSES */
+
+
+body.app {
+    margin: 0;
+    font-family: "Segoe UI", Arial;
+    background: #f5f6fa;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffffff;
+}
+
+.header-left {
+    width: 220px;
+    border-right: 1px solid #ddd;
+    padding: 15px;
+    font-weight: bold;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-center {
+    flex: 1;
+    padding-left: 20px;
+    color: #666;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 30px;
+}
+.noti {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.noti:hover {
+    background:#dddbdb;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.header-right img{
+    width: 25px;
+}
+.header-right .divider {
+    border-right: 1px solid #ddd;
+    height: 50px;
+}
+.header-right .user{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease; 
+}
+.header-right .user:hover{
+    background:#ebebeb;
+    border: 1px solid #a8a8a8;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+aside {
+    width: 220px;     
+    border-right: 1px solid #ddd;
+    padding: 15px;
+    min-height: calc(100vh - 60px);
+    background: white;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    color: #888; 
+    font-weight: 600;
+}
+
+.sidebar button:hover{
+    background:#ebebeb;
+    color: #000; 
+}
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-start;
+}
+.menu-item img {
+    width: 30px; 
+}  
+.menu-title {
+    margin-bottom: 30px;
+    color: #888;
+    font-size: 13px;
+}
+.avatar{
+    border-radius: 50%;
+    background: #6c63ff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+@media (max-width: 595px) {
+
+    .header-left {
+        width: auto;              
+        flex: none;
+        border-right: none;       
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .header-left .logo {
+        display: none;            
+    }
+
+    .menu-toggle {
+        display: block;           
+    }
+
+    aside {
+        position: fixed;
+        top: 0;
+        left: -220px;
+        height: 100%;
+        background: white;
+        transition: 0.3s;
+        z-index: 1000;
+    }
+
+}
