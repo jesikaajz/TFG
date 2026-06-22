@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Registrar</title>
+</head>
+<body class ="register-page">
+    <div class="Reg_in">
+        <h1>Crea una cuenta</h1>
+        <p class="subtitle">Bienvenido, introduce tus datos</p>
+        <form id="RegForm">
+            <label>Nombre</label>
+            <input id="nombre" type="text" placeholder="Jose Luis Sanchez" name="nombre" autocomplete="name" required>
+
+            <label>Email</label>
+            <input id="email" type="email" placeholder="you@example.com" name="email" autocomplete="email" required>
+
+            <label>Contraseña</label>
+            <input id="password" type="password" placeholder="••••••••" name="password"  autocomplete="new-password" required>
+
+            <label>Confirmar Contraseña</label>
+            <input id="password2" type="password" placeholder="••••••••" name="password2"  autocomplete="new-password" required>
+
+            <button type="submit" class="registrar-btn">Crear Cuenta</button>
+            <p id="register-error" class="error-message"></p>
+            <div class="registrar">
+                <span>Ya tienes cuenta?</span>
+                <a href="#" id="go-login">Iniciar Sessión</a>
+            </div>
+        </form>
+    </div>
+<script type="module" src="src/js/register.js"></script> 
+</body>
+</html>

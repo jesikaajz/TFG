@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Iniciar Sessión</title>
+</head>
+<body class="login-page">
+
+    <div class="Sign_in">
+        <h1>Iniciar Sesión</h1>
+        <p class="subtitle">Bienvenido, introduce tus datos</p>
+
+        <div class="button">
+            <button type="button" id="student">Alumno
+                <img src="src/img/alumno.png" width="45">
+            </button>
+            <button type="button" id="teacher">Profesor
+                <img src="src/img/profesor.png" width="45">
+            </button>
+            <button type="button" id="admin">Administrador   
+                <img src="src/img/admin.png" width="45">
+            </button>
+        </div>
+
+        <form id="loginForm" method="POST">
+            <label>Email</label>
+            <input id="email" type="email" placeholder="you@example.com" name="email"  autocomplete="email" required>
+
+            <label>Contraseña</label>
+            <input id="password" type="password" placeholder="••••••••" name="password"  autocomplete="current-password" required>
+
+            <button class="login-btn" type="submit" >Iniciar Sesión</button>
+            <p id="login-error" class="error-message"></p>
+            <div class="forgot-password-link">
+                <a href="#" id="forgotPasswordLink">¿Olvidaste tu contraseña?</a>
+            </div>        
+        </form>
+    </div>
+<script type="module" src="src/js/login.js"></script> 
+</body>
+</html>

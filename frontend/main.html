@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Courses</title>
+</head>
+<body class="app">
+<header class="header">
+    <div class="header-left">
+        <span class="logo">Aplicación</span>
+        <div class="menu-toggle">☰</div>
+    </div>
+    <div class="header-center">
+    </div>
+    <div class="header-right">
+        <div class="notifications-container">
+            <div class="noti" id="notificationsIcon">
+                <img src="src/img/notificacion.png" class="icon">
+                <span class="notifications-badge hidden" id="notificationsBadge">0</span>
+            </div>
+            <div class="notifications-dropdown hidden" id="notificationsDropdown">
+                <div class="notifications-header">
+                    <h3>Notifications</h3>
+                    <button id="markAllReadBtn" class="mark-all-read">Mark all as read</button>
+                </div>
+                <div class="notifications-list" id="notificationsList">
+                    <div class="no-notifications">No new notifications</div>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="user">
+        </div>
+    </div>
+</header>
+<div class="layout">
+    <aside class="sidebar">
+        <p class="menu-title">MENU</p>
+        <button class="menu-item">
+            <img src="src/img/dashboard.png" class="icon">
+            <span>Dashboard</span>
+        </button>
+        <button class="menu-item">
+            <img src="src/img/courses.png" class="icon">
+            <span>Courses</span>
+        </button>
+        <button class="menu-item">
+            <img src="src/img/exercises.png" class="icon">
+            <span>Exercises</span>
+        </button>
+        <button class="menu-item"> 
+            <img src="src/img/submissions.png" class="icon">
+            <span>Submissions</span>
+        </button>
+        <button class="menu-item">
+            <img src="src/img/reports.png" class="icon">
+            <span>Reports</span>
+        </button>
+        <button class="menu-item admin-only" data-menu="5" style="display: none;">
+            <img src="src/img/academic.png" class="menu-icon">
+            <span>Academic Structure</span>
+        </button>
+        <button class="menu-item admin-only">
+            <img src="src/img/users.png" class="icon">
+            <span>Users</span>
+        </button>
+        <button class="menu-item admin-only" data-menu="7">
+            <img src="src/img/config.png" class="icon">
+            <span>System Config</span>
+        </button>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="content">
+    </main>  
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="src/js/main.js"></script> 
+</body>
+</html>
